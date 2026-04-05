@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 370px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    padding: 25px;  
+}
+.card .profile-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+h1{
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+p.title{
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+p.bio{
+    font-size: 16px;
+    color: #777;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* 1. Hide the checkbox 'brains' */
+.state-handler {
+    display: none;
+}
+
+/* 2. Fix the button container layout */
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Space between buttons instead of margins */
+    width: 100%;
+}
+
+/* 3. Base Button Styles (Modified for Labels) */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    user-select: none;
+    text-align: center;
+}
+
+/* 4. Hide the 'Active' text by default */
+.text-active {
+    display: none;
+}
+
+/* 5. THE MAGIC: When checkbox is checked, change the sibling label */
+#follow-toggle:checked + .btn-primary {
+    background-color: #28a745; /* Success Green */
+}
+
+#msg-toggle:checked + .btn-secondary {
+    background-color: #444;
+    color: white;
+}
+
+/* Swap text spans when checked */
+.state-handler:checked + label .text-default {
+    display: none;
+}
+
+.state-handler:checked + label .text-active {
+    display: inline;
+}
+
+/* Active Press Effect */
+.btn-primary:active, .btn-secondary:active {
+    transform: scale(0.95);
+}
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Adds space between each link */
+    margin-top: 20px;
+    width: 100%;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column; /* Puts the icon above the text */
+    align-items: center;
+    text-decoration: none;
+    color: #555;
+    font-size: 12px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link i {
+    font-size: 24px; /* Makes the icons larger */
+    margin-bottom: 5px;
+}
+/* Individual colors for each platform */
+.social-link:hover .fa-facebook { color: #1877F2; }
+.social-link:hover .fa-tiktok { color: #000000; }
+.social-link:hover .fa-instagram { color: #E4405F; }
+.social-link:hover .fa-telegram { color: #0088cc; }
+
+/* The "Pop" effect */
+.social-link:hover {
+    transform: translateY(-5px); /* Lifts the icon up slightly */
+}

@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: #121321;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    perspective: 1000px;
+}
+section::before{
+    content: '';
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    border-radius: 50%;
+    transform: translate(-150px, -100px);
+    background: linear-gradient(90deg, #9c27b0, #f3f5f5);
+}
+section::after{
+    content: '';
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    border-radius: 50%;
+    transform: translate(150px, 100px);
+    background: linear-gradient(90deg, #9c27b0, #f3f5f5);
+}
+.container{
+    position: relative;
+    height: 225px;
+    width: 375px;
+    z-index: 100;
+    transition: 0.8s;
+    transform-style: preserve-3d;
+}
+/* ... Keep your section, ::before, ::after, and .container as they are ... */
+.container:hover{
+    transform: rotateY(180deg);
+}
+
+.container .cardfront {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 25px; /* CRITICAL: Adds space inside the card so items don't touch edges */
+    justify-content: space-between; /* Pushes header to top and details to bottom */
+}
+
+.cardfront header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cardfront .logo img {
+    width: 100px; /* Adjusted size: 120px was a bit too large for this height */
+}
+
+.cardfront .chip {
+    width: 50px;
+}
+
+/* Card details section at the bottom */
+.cardfront .card-detail {
+    display: flex;
+    align-items: flex-end; /* Aligns the date with the name at the bottom */
+    justify-content: space-between;
+}
+
+/* Typography Fixes */
+h6 {
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+h5.number {
+    font-size: 18px;
+    letter-spacing: 2px; /* Increased for that 'credit card' look */
+    margin-top: 4px;
+    font-family: 'Courier New', Courier, monospace; /* Monospace looks like embossed numbers */
+}
+
+.name {
+    margin-top: 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.valid {
+    text-align: right; /* Aligns the "Expired Date" text to the right side */
+}
+.cardback {
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    color: white;
+    transform: rotateY(180deg); /* Flips the card to show the back */
+    backface-visibility: hidden; /* Hides the front when flipped */
+}
+
+/* The Magnetic Stripe */
+.black-stripe {
+    width: 100%;
+    height: 45px;
+    background: #000;
+    margin-top: 25px;
+    opacity: 0.8;
+}
+
+.back-content {
+    padding: 20px;
+}
+
+.cvv-area {
+    margin-top: 10px;
+}
+
+.signature-bar {
+    width: 80%;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Pushes CVV to the right */
+    padding-right: 15px;
+    border-radius: 4px;
+}
+
+.cvv {
+    color: #333;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.disclaimer {
+    font-size: 8px;
+    line-height: 1.2;
+    margin-top: 20px;
+    opacity: 0.6;
+    padding: 0 10px;
+}
